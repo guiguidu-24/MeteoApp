@@ -1,0 +1,107 @@
+﻿<Window x:Class="MeteoApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MeteoApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="350">
+    <StackPanel Margin="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Name="RefreshBtn" HorizontalAlignment="Left">actualiser</Button>
+            <TextBox Text="{Binding InseeNb, Mode=TwoWay}" ToolTip="n°Insee" Grid.Column="2" HorizontalAlignment="Right" Width="50"/>
+        </Grid>
+
+        <StackPanel Margin="20" HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" Text="{Binding City}"/>
+            <TextBlock FontSize="30" HorizontalAlignment="Center" Text="{Binding CurrentTemperature}"/>
+            <TextBlock HorizontalAlignment="Center" Text="{Binding CurrentWeatherType}"/>
+            <Image Height="60" Source="{Binding CurrentWeatherIcon}"/>
+        </StackPanel>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel>
+                <TextBlock Text="{Binding HourlyWeatherList[0].Hour}" HorizontalAlignment="Center"/>
+                <Image Source="{Binding HourlyWeatherList[0].Icon}" Height="30"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="{Binding HourlyWeatherList[1].Hour}" HorizontalAlignment="Center"/>
+                <Image Source="{Binding HourlyWeatherList[1].Icon}" Height="30"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="{Binding HourlyWeatherList[2].Hour}" HorizontalAlignment="Center"/>
+                <Image Source="{Binding HourlyWeatherList[2].Icon}" Height="30"/>
+            </StackPanel>
+            <StackPanel Grid.Column="3">
+                <TextBlock Text="{Binding HourlyWeatherList[3].Hour}" HorizontalAlignment="Center"/>
+                <Image Source="{Binding HourlyWeatherList[3].Icon}" Height="30"/>
+            </StackPanel>
+            <StackPanel Grid.Column="4" HorizontalAlignment="Center">
+                <TextBlock Text="{Binding HourlyWeatherList[4].Hour}" HorizontalAlignment="Center"/>
+                <Image Source="{Binding HourlyWeatherList[4].Icon}" Height="30"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="{Binding DailyWeatherList[0].Day}"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding DailyWeatherList[0].MinMaxTemperature}"/>
+            <Image Grid.Row="0" Grid.Column="4" Height="20" Source="{Binding DailyWeatherList[0].Icon}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding DailyWeatherList[1].Day}"/>
+            <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding DailyWeatherList[1].MinMaxTemperature}"/>
+            <Image Grid.Row="1" Grid.Column="4" Height="20" Source="{Binding DailyWeatherList[1].Icon}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="2" Text="{Binding DailyWeatherList[2].Day}"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding DailyWeatherList[2].MinMaxTemperature}"/>
+            <Image Grid.Row="2" Grid.Column="4" Height="20" Source="{Binding DailyWeatherList[2].Icon}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="3" Text="{Binding DailyWeatherList[3].Day}"/>
+            <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding DailyWeatherList[3].MinMaxTemperature}"/>
+            <Image Grid.Row="3" Grid.Column="4" Height="20" Source="{Binding DailyWeatherList[3].Icon}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="4" Text="{Binding DailyWeatherList[4].Day}"/>
+            <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding DailyWeatherList[4].MinMaxTemperature}"/>
+            <Image Grid.Row="4" Grid.Column="4" Height="20" Source="{Binding DailyWeatherList[4].Icon}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="5" Text="{Binding DailyWeatherList[5].Day}"/>
+            <TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding DailyWeatherList[5].MinMaxTemperature}"/>
+            <Image Grid.Row="5" Grid.Column="4" Height="20" Source="{Binding DailyWeatherList[5].Icon}"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="6" Text="{Binding DailyWeatherList[6].Day}"/>
+            <TextBlock Grid.Row="6" Grid.Column="2" Text="{Binding DailyWeatherList[6].MinMaxTemperature}"/>
+            <Image Grid.Row="6" Grid.Column="4" Height="20" Source="{Binding DailyWeatherList[6].Icon}"/>
+        </Grid>
+    </StackPanel>
+</Window>
